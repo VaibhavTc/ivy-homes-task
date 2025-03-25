@@ -41,4 +41,39 @@ npm install axios fs
 ```
 ### 2️⃣ **Run the Script**
 ```sh
-npm install
+node ectract_v1.js
+node ectract_v2.js
+node ectract_v3.js
+```
+---
+## 📂 Output
+
+### **After execution, the script saves results in:**
+  
+- `optimized_names_v1.txt` (for v1)
+- `optimized_names_v2.txt` (for v2)
+- `optimized_names_v3.txt` (for v3)
+
+Each file contains a sorted list of extracted names.
+
+---
+
+## ⚠️ Handling Rate Limits
+- If the script exceeds the API rate limit (`429` error), it waits 5 seconds before retrying.
+- If an unexpected error occurs, it keeps retrying until the request succeeds.
+---
+
+## ✨ Future Improvements
+- Add multi-threading to speed up requests while respecting rate limits.
+- Optimize error handling for faster retries.
+- Use proxies to avoid error `429`
+---
+
+## 🛠 Built With
+- Node.js
+- Axios (for API requests)
+- fs (File System) (for saving results)
+---
+
+## 📜 License
+This project is licensed under the **MIT License**.
