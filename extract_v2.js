@@ -1,12 +1,12 @@
 const axios = require("axios");
 const fs = require("fs");
 
-const API_VERSION = "v1";
+const API_VERSION = "v2";
 const RATE_LIMITS = { v1: 100, v2: 50, v3: 80 };
 const API_URL = `http://35.200.185.69:8000/${API_VERSION}/autocomplete?query=`;
 
 const MAX_RESULTS = 10;
-const letters = "abcdefghijklmnopqrstuvwxyz";
+const letters = "abcdefghijklmnopqrstuvwxyz0123456789";
 const MAX_DEPTH = 3;
 const DELAY_BETWEEN_REQUESTS = Math.ceil(60000 / RATE_LIMITS[API_VERSION]);
 
@@ -74,7 +74,7 @@ async function main() {
   console.log(`🎉 Total names found: ${allNames.size}`);
 
   fs.writeFileSync(
-    `optimized_names_1_${API_VERSION}.txt`,
+    `optimized_names_${API_VERSION}.txt`,
     Array.from(allNames).sort().join("\n"),
     "utf8"
   );
